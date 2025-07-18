@@ -100,14 +100,3 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        output: codeql-report.sarif
-
-    - name: Upload SARIF Report as Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: codeql-results-${{ github.job }}-${{ github.run_number }}-${{ github.run_attempt }}
-        path: ./codeql-results
